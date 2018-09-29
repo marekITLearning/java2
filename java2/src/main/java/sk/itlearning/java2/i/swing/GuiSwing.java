@@ -16,8 +16,8 @@ public class GuiSwing {
 		frame.setVisible(true);
 		frame.setSize(300, 300);
 		
-		JLabel label = new JLabel();
-		JButton button = new JButton("Action ");
+		JLabel label = new JLabel("Label");
+		JButton button = new JButton("Action");
 		
 		JPanel panel = new JPanel();
 		panel.add(label);
@@ -28,10 +28,11 @@ public class GuiSwing {
 		button.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				label.setText(label.getText() + button.getText());
+				label.setText(label.getText() + "X");
 			}
 		});
 		
 		// button.addActionListener(e -> label.setText(label.getText() + button.getText()));
 	}
+	
 }

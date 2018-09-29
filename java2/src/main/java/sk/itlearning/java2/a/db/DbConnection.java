@@ -13,12 +13,9 @@ public class DbConnection {
 
 	public static void main(String[] args) {
 
-		Connection connection = null;
-		ResultSet rs = null;
-		try {
-			connection = DriverManager.getConnection("jdbc:postgresql:java","postgres", "sa");
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql:java2","postgres", "sa");
 			Statement stmt = connection.createStatement();
-			rs = stmt.executeQuery("select * from public.\"Zakaznik\"");
+			ResultSet rs = stmt.executeQuery("select * from public.zakaznik")) {
 			while (rs.next()) {
 				Obcan o = new Obcan(rs.getString("id"), rs.getString("name"));
 				o.setKredit(new BigDecimal(rs.getDouble("kredit")));
@@ -27,16 +24,7 @@ public class DbConnection {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("Nepodarilo sa pripojit na databazu");
-		} finally {
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-
-				}
-			}
 		}
-
 	}
 
 }

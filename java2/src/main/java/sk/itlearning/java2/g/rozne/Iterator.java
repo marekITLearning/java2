@@ -13,7 +13,7 @@ public class Iterator {
 		cisla.add(2);
 		cisla.add(3);
 
-		java.util.Iterator<Integer> i = (java.util.Iterator<Integer>) cisla.iterator();
+		java.util.Iterator<Integer> i = cisla.iterator();
 
 		while (i.hasNext()) {
 			System.out.println(i.next());
