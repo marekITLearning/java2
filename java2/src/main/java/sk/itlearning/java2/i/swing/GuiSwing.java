@@ -32,7 +32,7 @@ public class GuiSwing {
 			}
 		});
 		
-		// button.addActionListener(e -> label.setText(label.getText() + button.getText()));
+		// button.addActionListener(e -> label.setText(label.getText() + "Y"));
 	}
 	
 }
