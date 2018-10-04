@@ -13,8 +13,6 @@ public class GuiSwing {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("GUI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.setSize(300, 300);
 		
 		JLabel label = new JLabel("Label");
 		JButton button = new JButton("Action");
@@ -33,6 +31,10 @@ public class GuiSwing {
 		});
 		
 		// button.addActionListener(e -> label.setText(label.getText() + "Y"));
+		
+		frame.pack();
+		frame.setBounds(300, 300, 400, 250);
+		frame.setVisible(true);
 	}
 	
 }
