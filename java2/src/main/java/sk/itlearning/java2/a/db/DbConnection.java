@@ -17,7 +17,7 @@ public class DbConnection {
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from public.zakaznik")) {
 			while (rs.next()) {
-				Obcan o = new Obcan(rs.getString("id"), rs.getString("name"));
+				Obcan o = new Obcan("11", rs.getString("name"));
 				o.setKredit(new BigDecimal(rs.getDouble("kredit")));
 				System.out.println(o);
 			}
@@ -25,6 +25,7 @@ public class DbConnection {
 			e.printStackTrace();
 			System.out.println("Nepodarilo sa pripojit na databazu");
 		}
+		
 	}
 
 }
