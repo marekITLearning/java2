@@ -13,7 +13,7 @@ public class DbConnection {
 
 	public static void main(String[] args) {
 
-		try (Connection connection = DriverManager.getConnection("jdbc:postgresql:java2","postgres", "sa");
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql:zakaznik","postgres", "sa");
 			Statement stmt = connection.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from public.zakaznik")) {
 			while (rs.next()) {
