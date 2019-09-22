@@ -21,6 +21,8 @@ public class DateFormatting {
 
 		DateFormat df2 = DateFormat.getDateInstance(0, new Locale("sk", "SK"));
 		System.out.println(df2.format(d));
+		
+		System.out.println("Zmeneny kod");
 	}
 
 }
