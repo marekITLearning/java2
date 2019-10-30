@@ -13,18 +13,18 @@ public class DbConnection {
 
 	public static void main(String[] args) {
 
-//		try (Connection connection = DriverManager.getConnection("jdbc:postgresql:zakaznik","postgres", "sa");
-//			Statement stmt = connection.createStatement();
-//			ResultSet rs = stmt.executeQuery("select * from public.zakaznik")) {
-//			while (rs.next()) {
-//				Obcan o = new Obcan("11", rs.getString("name"));
-//				o.setKredit(new BigDecimal(rs.getDouble("kredit")));
-//				System.out.println(o);
-//			}
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//			System.out.println("Nepodarilo sa pripojit na databazu");
-//		}
+		try (Connection connection = DriverManager.getConnection("jdbc:postgresql:zakaznik","postgres", "sa");
+			Statement stmt = connection.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from public.zakaznik")) {
+			while (rs.next()) {
+				Obcan o = new Obcan("11", rs.getString("name"));
+				o.setKredit(new BigDecimal(rs.getDouble("kredit")));
+				System.out.println(o);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Nepodarilo sa pripojit na databazu");
+		}
 		
 	}
 
