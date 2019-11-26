@@ -2,7 +2,7 @@ package sk.itlearning.java2.f.staticfinal;
 
 import java.math.BigDecimal;
 
-import sk.itlearning.java1.h.zakaznik.Obcan;
+import sk.itlearning.java2.a.db.Obcan;
 
 public final class Final extends FinalParent {
 

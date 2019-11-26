@@ -7,8 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import sk.itlearning.java1.h.zakaznik.Obcan;
-
 public class DbConnection {
 
 	public static void main(String[] args) {

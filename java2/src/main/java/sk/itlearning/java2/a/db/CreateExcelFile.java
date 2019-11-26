@@ -12,27 +12,25 @@ import jxl.write.WriteException;
 public class CreateExcelFile {
 
 	public static void main(String[] args) {
-	    String EXCEL_FILE_LOCATION = "C:\\temp\\MyFirstExcel.xls";
-        WritableWorkbook myFirstWbook = null;
-        try {
-            myFirstWbook = Workbook.createWorkbook(new File(EXCEL_FILE_LOCATION));
-            WritableSheet excelSheet = myFirstWbook.createSheet("Sheet 1", 0);
-            Label label = new Label(0, 0, "Test Count");
-            excelSheet.addCell(label);
-            myFirstWbook.write();
-        } catch (IOException | WriteException e) {
-            e.printStackTrace();
-        } finally {
-            if (myFirstWbook != null) {
-                try {
-                    myFirstWbook.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (WriteException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+		String EXCEL_FILE_LOCATION = "C:\\temp\\MyExcel.xls";
+		WritableWorkbook myFirstWbook = null;
+		try {
+			myFirstWbook = Workbook.createWorkbook(new File(EXCEL_FILE_LOCATION));
+			WritableSheet excelSheet = myFirstWbook.createSheet("MySheet", 0);
+			Label label = new Label(0, 0, "Test Count");
+			excelSheet.addCell(label);
+			myFirstWbook.write();
+		} catch (IOException | WriteException e) {
+			e.printStackTrace();
+		} finally {
+			if (myFirstWbook != null) {
+				try {
+					myFirstWbook.close();
+				} catch (IOException | WriteException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 
 }

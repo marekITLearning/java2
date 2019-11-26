@@ -1,6 +1,6 @@
 package sk.itlearning.java2.g.rozne;
 
-import sk.itlearning.java1.h.zakaznik.Obcan;
+import sk.itlearning.java2.a.db.Obcan;
 
 public class Equals {
 
