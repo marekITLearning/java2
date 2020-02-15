@@ -1,6 +1,7 @@
 package sk.itlearning.java2.a.db;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Obcan implements Zakaznik {
 
@@ -51,23 +52,25 @@ public class Obcan implements Zakaznik {
 	}
 	
 	@Override
+	public String toString() {
+		return "Zakaznik; typ Obcan; RC = " + rodneCislo + "; Meno = " + meno;
+	}
+	
+	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof Obcan) {
-			return rodneCislo.equals( ((Obcan)obj).getRodneCislo() );
+			boolean result = true;
+			result &= Objects.equals(this, (Obcan)obj);
+			result &= Objects.equals(this, (Obcan)obj);
+			result &= Objects.equals(this, (Obcan)obj);
+			return result;
 		}
 		return false;
 	}
-
+	
 	@Override
 	public int hashCode() {
-		rodneCislo = rodneCislo.replace("/", "");
-		long rcc = Long.valueOf(rodneCislo);
-		return Long.valueOf(rcc/11).hashCode();
-	}
-
-	@Override
-	public String toString() {
-		return "Zakaznik; typ Obcan; RC = " + rodneCislo + "; Meno = " + meno;
+		return Objects.hash(this.meno, this.kredit, this.rodneCislo);
 	}
 	
 }
