@@ -58,14 +58,12 @@ public class Obcan implements Zakaznik {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof Obcan) {
-			boolean result = true;
-			result &= Objects.equals(this, (Obcan)obj);
-			result &= Objects.equals(this, (Obcan)obj);
-			result &= Objects.equals(this, (Obcan)obj);
-			return result;
-		}
-		return false;
+		if (!(obj instanceof Obcan)) 
+			return false;
+		Obcan o = (Obcan)obj;
+		return Objects.equals(this.meno, o.meno) &&
+			Objects.equals(this.rodneCislo, o.rodneCislo) &&
+			Objects.equals(this.kredit, o.kredit);
 	}
 	
 	@Override
