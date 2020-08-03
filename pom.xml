@@ -11,8 +11,8 @@
 
 	<name>workspace parent</name>
 
-  <modules>
-    <module>java2</module>
-  </modules>
+	<modules>
+		<module>java2</module>
+	</modules>
 
 </project>
