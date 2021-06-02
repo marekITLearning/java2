@@ -15,13 +15,16 @@ public class DbConnection {
 			Statement stmt = connection.createStatement();
 			ResultSet rs2 = stmt.executeQuery("select * from public.zakaznik")) {
 			while (rs2.next()) {
-				Obcan o = new Obcan("11", rs2.getString("name"));
-				o.setKredit(new BigDecimal(rs2.getDouble("kredit")));
+				String rodneCislo = rs2.getString("zakid");
+				String meno = rs2.getString("name");
+				BigDecimal kredit = BigDecimal.valueOf(rs2.getDouble("kredit"));
+				Obcan o = new Obcan(rodneCislo, meno);
+				o.setKredit(kredit);
 				System.out.println(o);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Nepodarilo sa pripojit na databazu");
+			System.out.println("Nepodarilo sa pripojit ku databaze");
 		}
 
 	}
