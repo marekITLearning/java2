@@ -15,21 +15,9 @@ import java.nio.file.Paths;
 public class WriteToFile {
 
 	public static void main(String[] args) {
-		File f = new File("C:/devel/tmp/subor.txt");
+		File f = new File("C:/devel/subor.txt");
 
-		File tmp = new File("C:/devel/tmp/subor1.txt");
-
-		try (InputStream in = new BufferedInputStream(new FileInputStream(f));
-				OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
-			byte[] buffer = new byte[1024];
-			int lengthRead;
-			while ((lengthRead = in.read(buffer)) > 0) {
-				out.write(buffer, 0, lengthRead);
-				out.flush();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		File tmp = new File("C:/devel/subor1.txt");
 
 		if (!f.exists()) {
 			try {
@@ -49,6 +37,18 @@ public class WriteToFile {
 			}
 		}
 
+		try (InputStream in = new BufferedInputStream(new FileInputStream(f));
+				OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
+			byte[] buffer = new byte[1024];
+			int lengthRead;
+			while ((lengthRead = in.read(buffer)) > 0) {
+				out.write(buffer, 0, lengthRead);
+				out.flush();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 		f.setReadOnly();
 
 		try (FileWriter fw = new FileWriter(tmp, true);) {
@@ -59,7 +59,7 @@ public class WriteToFile {
 		}
 
 		try {
-			Files.move(tmp.toPath(), Paths.get("C:/devel/tmp/subor.txt"));
+			Files.move(tmp.toPath(), Paths.get("C:/devel/subor.txt"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
