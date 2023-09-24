@@ -9,13 +9,13 @@ public class WriteToFile {
 
 	public static void main(String[] args) {
 		File f = new File("C:/devel/test");
-		
+
 		if (!f.exists()) {
-			f.mkdir();
+			f.mkdirs();
 		}
 
 		f = Paths.get(f.getPath(), "subor.txt").toFile();
-		
+
 		if (!f.exists()) {
 			try {
 				f.createNewFile();
